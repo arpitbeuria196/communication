@@ -3,12 +3,17 @@ import ShimmerCard from './ShimmerCard'
 
 const Shimmer = () => {
 
-  return Array(10).fill(0).map((n,i)=>
-    (
+  return(
         <div className='flex flex-wrap'>
-          <ShimmerCard/>
+         {
+           Array(10).fill(0).map((_,i)=>(
+            <div key={i} className="m-4">
+            <ShimmerCard />
+          </div>
+           ))
+         }
         </div>
-      )) 
+      )
 }
 
 export default Shimmer

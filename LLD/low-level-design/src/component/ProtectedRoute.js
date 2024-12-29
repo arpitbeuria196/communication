@@ -3,7 +3,7 @@ import { Outlet,Navigate} from 'react-router-dom';
 import Login from './Login';
 
 const ProtectedRoute = () => {
-    const isAuthenticated = false;
+    const isAuthenticated = true;
     
   return (
     <div>

@@ -2,6 +2,8 @@ import React from 'react'
 
 const MemeCard = ({meme}) => {
 
+  
+
 const {author,url,title} = meme;
   return (
     <div className='max-w-xs border rounded-md  border-red-400 p-4 m-4'>

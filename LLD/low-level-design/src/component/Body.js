@@ -1,42 +1,61 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react'
-import MemeCard from './MemeCard';
-import Shimmer from './Shimmer';
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import MemeCard from "./MemeCard";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
+  const [memes, setMemes] = useState([]);
+  const [shimmer,setShimmer] = useState(true);
 
-const [memes,setMemes] = useState([]);
-
-useEffect(()=>{
+  useEffect(() => {
     fetchmemesAPI();
-},[])
 
-const fetchmemesAPI = async ()=>
-{
-   try {
-    const response = await axios.get("https://meme-api.com/gimme/20");
-     console.log(response.data.memes); 
-     setMemes(response.data.memes);
-   } catch (error) {
-    console.log(error.message);
-   }
-}
+    window.addEventListener("scroll",scrollHandle);
+
+    return ()=> window.removeEventListener("scroll",scrollHandle);
 
 
-  return  (memes.length == 0) ? <div className='flex flex-wrap'>
-    <Shimmer/>
-    </div> : (
-    <div className='flex flex-wrap justify-center'>
-      {memes.map((meme,index)=>(
+  }, []);
 
-        <MemeCard
-        key={index}
-        meme ={meme}
-        />
-            
+  const scrollHandle = async ()=>
+  {
+    try {
+      if(window.innerHeight + window.scrollY >= document.body.scrollHeight-10)
+      {
+
+        fetchmemesAPI();
+      }
+      
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
+  const fetchmemesAPI = async () => {
+    try {
+      setShimmer(true);
+      const response = await axios.get("https://meme-api.com/gimme/20");
+      
+      setShimmer(false)
+      setMemes((memes)=> [...memes,...response.data.memes]);
+     
+      console.log("Api Called");
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  return shimmer ? (
+    <div className="flex flex-wrap">
+      <Shimmer />
+    </div>
+  ) : (
+    <div className="flex flex-wrap justify-center">
+      {memes.map((meme) => (
+        <MemeCard key={meme.url} meme={meme} /> 
       ))}
     </div>
-  )
-}
+  );
+};
 
-export default Body
+export default Body;

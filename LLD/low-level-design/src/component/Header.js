@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import About from "../component/About"
 
-const Header = () => {
-  
+const Header = ({lang,setLang}) => {
   return (
+    <>
     <header className="bg-black text-white px-5 py-4 flex justify-between items-center shadow-md">
       {/* Branding / Logo */}
       <div className="text-2xl font-bold">
@@ -45,9 +46,34 @@ const Header = () => {
               Login
             </Link>
           </li>
+          <li>
+            <Link
+              to="/accordion"
+              className="hover:text-gray-300 transition duration-200"
+            >
+              accordian
+            </Link>
+          </li>
         </ul>
       </nav>
+      <select 
+      className='text-black border rounded-md font-semibold mt-4' 
+      value={lang}
+      onChange={(e)=>
+      {
+        console.log(lang);
+        setLang(e.target.value);
+      }
+      }
+      >
+      <option value="en">English</option>
+      <option value="hi">Hindi</option>
+      
+      </select>
     </header>
+    </>
+
+    
   );
 };
 

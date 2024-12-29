@@ -6,9 +6,11 @@ import ProtectedRoute from "./component/ProtectedRoute";
 import Team from "./component/Team";
 import "./index.css";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
-
+import { useState } from "react";
+import Accordion from "./component/Accordion";
 
 function App() {
+  const [lang, setLang] = useState('en');
 
   const router = createBrowserRouter([
 
@@ -16,7 +18,7 @@ function App() {
       path:"/",
       element:(
         <div>
-          <Header/>
+          <Header lang={lang} setLang={setLang}/>
           <Outlet/>
         </div>
       ),
@@ -37,11 +39,15 @@ function App() {
 
             {
               path:"about",
-              element:<About/>
+              element:<About lang={lang}/>
             },
             {
               path:"team",
               element:<Team/>
+            },
+            {
+              path:"accordion",
+              element:<Accordion/>
             }
           ]
         },
