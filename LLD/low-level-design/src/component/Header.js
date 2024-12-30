@@ -54,6 +54,14 @@ const Header = ({lang,setLang}) => {
               accordian
             </Link>
           </li>
+          <li>
+            <Link
+              to="/comments"
+              className="hover:text-gray-300 transition duration-200"
+            >
+              Comments
+            </Link>
+          </li>
         </ul>
       </nav>
       <select 

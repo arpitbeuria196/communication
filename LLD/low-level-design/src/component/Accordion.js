@@ -36,8 +36,7 @@ const accordionData = [
   ];
   
 const Accordion = () => {
-    const [indexAccordian,setIndexAccordian] = useState(0);
-    const[isOpen,setIsOpen] = useState(false);
+    const [indexAccordian,setIndexAccordian] = useState(null);
   return (
     <div>
       {accordionData.map((acc,index)=>
@@ -49,7 +48,7 @@ const Accordion = () => {
         setIsOpen={
             ()=>
             {
-                indexAccordian == index ? setIndexAccordian(null) :  setIndexAccordian(index);
+              indexAccordian == index ? setIndexAccordian(null) : setIndexAccordian(index);
             }
          }
         />

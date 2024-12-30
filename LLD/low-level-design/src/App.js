@@ -8,6 +8,7 @@ import "./index.css";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import { useState } from "react";
 import Accordion from "./component/Accordion";
+import Comments from "./component/Comments";
 
 function App() {
   const [lang, setLang] = useState('en');
@@ -48,6 +49,11 @@ function App() {
             {
               path:"accordion",
               element:<Accordion/>
+            },
+            {
+              path:"comments",
+              element:<Comments/>
+
             }
           ]
         },
