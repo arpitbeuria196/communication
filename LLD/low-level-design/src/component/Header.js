@@ -62,6 +62,14 @@ const Header = ({lang,setLang}) => {
               Comments
             </Link>
           </li>
+          <li>
+            <Link
+              to="/images"
+              className="hover:text-gray-300 transition duration-200"
+            >
+              ImageSlides
+            </Link>
+          </li>
         </ul>
       </nav>
       <select 

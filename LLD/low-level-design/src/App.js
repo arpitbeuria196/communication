@@ -9,6 +9,7 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import { useState } from "react";
 import Accordion from "./component/Accordion";
 import Comments from "./component/Comments";
+import ImageSlides from "./component/ImageSlides";
 
 function App() {
   const [lang, setLang] = useState('en');
@@ -54,7 +55,12 @@ function App() {
               path:"comments",
               element:<Comments/>
 
+            },
+            {
+              path:"images",
+              element:<ImageSlides/>
             }
+            
           ]
         },
         
