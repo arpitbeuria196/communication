@@ -13,9 +13,8 @@ const Body = () => {
     window.addEventListener("scroll",scrollHandle);
 
     return ()=> window.removeEventListener("scroll",scrollHandle);
-
-
-  }, []);
+  },
+  []);
 
   const scrollHandle = async ()=>
   {
