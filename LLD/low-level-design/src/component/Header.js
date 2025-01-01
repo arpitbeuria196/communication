@@ -70,6 +70,14 @@ const Header = ({lang,setLang}) => {
               ImageSlides
             </Link>
           </li>
+          <li>
+            <Link
+              to="/pagination"
+              className="hover:text-gray-300 transition duration-200"
+            >
+              Pagination
+            </Link>
+          </li>
         </ul>
       </nav>
       <select 

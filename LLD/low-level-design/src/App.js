@@ -10,6 +10,7 @@ import { useState } from "react";
 import Accordion from "./component/Accordion";
 import Comments from "./component/Comments";
 import ImageSlides from "./component/ImageSlides";
+import Pagination from "./component/Pagination";
 
 function App() {
   const [lang, setLang] = useState('en');
@@ -59,6 +60,10 @@ function App() {
             {
               path:"images",
               element:<ImageSlides/>
+            },
+            {
+              path:"pagination",
+              element:<Pagination/>
             }
             
           ]
