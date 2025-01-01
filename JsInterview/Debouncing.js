@@ -40,5 +40,9 @@ function outer() {
 //1. when a function is used as a method
 //2.Inside closures 
 
+//Without ASYNc and DEFER => html parsing done => Script tag encounters => Script Execution complete => Rest HTML Parsing Done
+//With ASYNC => Html Parsing in the same time  as soon as available in browser script execution start => Rest HTML Parsing
+//With DEFER => once HTML parsing done after that Script fetch parallael and once html done then only ot executed
+
 const betterFunction = doDebouncing(getData,3000);
 
