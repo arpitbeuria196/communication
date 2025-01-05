@@ -78,6 +78,14 @@ const Header = ({lang,setLang}) => {
               Pagination
             </Link>
           </li>
+          <li>
+            <Link
+              to="/liveChat"
+              className="hover:text-gray-300 transition duration-200"
+            >
+              LiveChat
+            </Link>
+          </li>
         </ul>
       </nav>
       <select 
