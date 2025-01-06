@@ -14,8 +14,6 @@ const intervalRef = useRef(null);
 
 const startTimerHandle = () =>
 {
-    
-
     const total = 
     (parseInt(hourVal,10) || 0 )* 3600 +
     (parseInt(minVal, 10) || 0) * 60 +
@@ -110,7 +108,7 @@ const {hh,mm,ss} = formatTime(timeLeft);
     <div>
         <h1>Countdown Timer</h1>
         {timeLeft === 0 ? (
-        <div style={{ display: "flex", gap: "8px" }}>
+        <div >
           <input
             type="number"
             aria-label="Hours"
