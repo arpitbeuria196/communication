@@ -15,7 +15,7 @@ const throttleLogic = (fn, delay) => {
 
   return (...args) => {
     if (!isThrottling) {
-      fn(...args); 
+      fn(...args);
       isThrottling = true;
 
       setTimeout(() => {
@@ -29,6 +29,18 @@ const Body = () => {
   const [normalBullets, setNormalBullets] = useState([]); // Bullets for normal flow
   const [debounceBullets, setDebounceBullets] = useState([]); // Bullets for debounce flow
   const [throttleBullets, setThrottleBullets] = useState([]); // Bullets for throttle flow
+
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+
+  // Update mouse position
+  const handleMouseMove = useCallback(
+    (event) => {
+      setPosition({ x: event.clientX, y: event.clientY });
+      console.log(position);
+    },
+    []
+  );
+  
 
   // Fire a bullet for normal flow
   const handleNormal = () => {
@@ -52,7 +64,31 @@ const Body = () => {
   );
 
   return (
-    <div className="p-4">
+    <div
+      className="p-4"
+      onMouseMove={handleMouseMove}
+      style={{
+        height: "100vh",
+        width: "100%",
+        position: "relative",
+        backgroundColor: "#f0f0f0",
+      }}
+    >
+      {/* Circle Follower */}
+      <div
+        style={{
+          position: "absolute",
+          top: position.y - 25, 
+          left: position.x - 25, // Adjust to center circle on mouse pointer
+          width: "50px",
+          height: "50px",
+          backgroundColor: "purple",
+          borderRadius: "50%",
+          pointerEvents: "none",
+          transition: "top 0.1s, left 0.1s",
+        }}
+      ></div>
+
       {/* Normal Gun */}
       <div className="flex items-center mb-6">
         <button
