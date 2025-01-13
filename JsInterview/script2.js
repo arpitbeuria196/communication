@@ -58,17 +58,27 @@
 
 // abc();
 
-function abc(a,b)
-{
-    'use strict'//variable declared any kind of keywords
+// function abc(a,b)
+// {
+//     'use strict'//variable declared any kind of keywords
 
-    a=100
-    b=200
+//     a=100
+//     b=200
 
-    return arguments[0] + arguments[1]
-    console.log(a+b); //won't print
-}
+//     return arguments[0] + arguments[1]
+//     console.log(a+b); //won't print
+// }
 
-console.log(abc(300,400)); // 100,200
+// console.log(abc(300,400)); // 100,200
+
+// const arr = [1,2,3,4,5,6,7,8];
+
+// const newArr = arr.map(num  => num > 4)
+
+// console.log(newArr);
+
+ 
+
+
 
 
