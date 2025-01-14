@@ -77,6 +77,28 @@
 
 // console.log(newArr);
 
+// var x = 20
+
+// function foo()
+// {
+//     console.log(x);
+//     let x =10
+// }
+// foo();
+
+// console.log('Start');
+// setTimeout(()=>{
+// console.log("Arpit");
+// },0)
+// console.log('end');
+
+setTimeout(()=>{
+    console.log('Timeout');
+},0)
+Promise.resolve().then(()=> console.log('Promise'));
+
+console.log('End');
+
  
 
 
