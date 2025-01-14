@@ -138,16 +138,16 @@
 
 // console.log(newArray);
 
-const str = "hi i am arpit"
+// const str = "hi i am arpit"
 
-const array = str.split(' ');
+// const array = str.split(' ');
 
-const newArray = array.map((char)=>
-{
-    return char[0].toUpperCase()+ char.slice(1,char.length);
-})
+// const newArray = array.map((char)=>
+// {
+//     return char[0].toUpperCase()+ char.slice(1,char.length);
+// })
 
-console.log(newArray);
+// console.log(newArray);
 
 
 
