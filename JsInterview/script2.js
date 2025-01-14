@@ -92,12 +92,68 @@
 // },0)
 // console.log('end');
 
-setTimeout(()=>{
-    console.log('Timeout');
-},0)
-Promise.resolve().then(()=> console.log('Promise'));
+// setTimeout(()=>{
+//     console.log('Timeout');
+// },0)
+// Promise.resolve().then(()=> console.log('Promise'));
 
-console.log('End');
+// console.log('End');
+
+// async function foo() {
+//     return 'Hello World';
+// }
+
+
+
+//     async function arp() {
+//         const res= await foo();  
+//         console.log(res)
+//     }
+
+//   arp(); 
+
+//console.log([1,2]==[1,2]);
+
+// const user1={
+//     name: 'john',
+//     age:25,
+//     info: function()
+//     {
+//         console.log(`${this.name} ${this.age}`);
+//     }
+   
+// }
+
+// const user2 ={
+//     name: 'Arpit',
+//     age: 27
+// }
+
+
+//     user1.info.call(user2,'xyz');
+
+// const numbers = [1,2,3,4,56]
+
+// const newArray =  numbers.filter((num)=>(num<3)).map((n)=> n+5)
+
+// console.log(newArray);
+
+const str = "hi i am arpit"
+
+const array = str.split(' ');
+
+const newArray = array.map((char)=>
+{
+    return char[0].toUpperCase()+ char.slice(1,char.length);
+})
+
+console.log(newArray);
+
+
+
+
+
+
 
  
 
