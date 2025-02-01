@@ -1,51 +1,54 @@
-import './App.css';
-import { comments } from './Comments';
-import Comment from './Comment';
 import { useState } from 'react';
+import './App.css';
+import Comment from './Comment';
+import { comments } from './Comments';
 
 function App() {
+  
+  const [commentBox,setCommentBox] = useState(comments);
+  const [text,setText] = useState("");
 
-  const[commentBox,setCommentBox] = useState("");
-  const [commentsDynamic,setCommentsDynamic] = useState(comments);
-
-  const handleAddComment = ()=>
+  const handleAddComments = ()=>
   {
-    if (commentBox.trim() === '') return;
-    const newComment = {
-      id: Date.now(), // Unique ID (using timestamp)
-      text: commentBox,
-      replies: [], // No replies initially
-    };
-      setCommentsDynamic([...commentsDynamic,newComment]);
-      setCommentBox('');
+    if(text.trim()=== " ") return;
+
+    const newText = {
+      id: Date.now(),
+      text: text,
+      replies:[],
+    }
+
+    setCommentBox(...commentBox,newText);
 
   }
 
-
   return (
-    <>
-    <div className='min-h-screen p-10 text-white'>
-    <h1 className="text-2xl font-bold mb-6">Nested Comments</h1>
-    <textarea
-    value={commentBox}
-    onChange={(e)=>setCommentBox(e.target.value)}
-    className='border m-2 '
-    />
-    <button
-    onClick={handleAddComment}
-    >Add Comment</button>
-    <div>
-      {commentsDynamic?.length && (
-        commentsDynamic.map((comment,index)=>(
-          <Comment
-          key={index}
-          comment= {comment}
-          />
-        ))
-      )}
+    <> 
+    <div className='min-h-screen justify-center text-center m-10'>
+      <h1>Custom Comments</h1>
+      <div className='m-4 grid gap-y-4 '>
+        <textarea
+        className='border p-4'
+        value={text}
+        onChange={(e)=>setText(e.target.value)}
+        />
+        <button onClick={handleAddComments}>Add Comments</button>
+      </div>
+      {
+        comments?.length && (
+          <div>
+            {
+              comments.map((co,index)=>(
+                <Comment
+                key={index}
+                comment={co}
+                />
+              ))
+            }
+          </div>
+        )
+      }
     </div>
-    </div>
-       
     </>
   )
 }
