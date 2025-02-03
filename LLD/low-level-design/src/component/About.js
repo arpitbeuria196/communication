@@ -1,7 +1,8 @@
 import React from "react";
 import { Languages } from "../utils/Constants";
 
-const About = ({ lang }) => {
+const About = 
+({ lang }) => {
   const LANG = Languages[lang] || Languages.default; 
 
   return (
