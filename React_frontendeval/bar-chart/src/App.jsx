@@ -1,61 +1,61 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import { BarChart, CartesianGrid, ResponsiveContainer,XAxis,YAxis,Tooltip,Bar } from 'recharts';
+import { BarChart, ResponsiveContainer,XAxis,YAxis,Bar } from 'recharts';
 
 function App() {
-  const [data, setData] = useState([]);
 
-  useEffect(()=>{
-    fetchData();
-  },[])
+  const[data,setData] = useState([]);
 
-  const fetchData = async ()=>
-  {
-      const response = await fetch( "https://www.random.org/integers/?num=200&min=1&max=10&col=1&base=10&format=plain&rnd=new");
+ const url = "https://www.random.org/integers/?num=200&min=1&max=10&col=1&base=10&format=plain&rnd=new";
 
-      const dataV = await response.text();
+ useEffect(()=>{
+  fetchData();
+ },[])
 
-      const numbers = dataV.trim().split("\n").map(Number);
+ const fetchData = async ()=>
+ {
+    const response = await fetch(url);
+    const text = await response.text();
 
-      const frequencyMap  = new Map();
+    const dataV = text.split("\n").map((t)=>(Number(t)));
 
-      numbers.forEach((number)=>{
-          if(frequencyMap.has(number))
-          {
-            frequencyMap.set(number,frequencyMap.get(number)+1);
-          }
-          else
-          {
-            frequencyMap.set(number,1);
-          }
-      })
+    const frequencyMap = new Map();
 
-      const chartData = [];
+    dataV.forEach((item)=>{
+      if(frequencyMap.has(item))
+      {
+        frequencyMap.set(item,frequencyMap.get(item)+1);
+      }
+      else
+      {
+        frequencyMap.set(item,1);
+      }
+    })
 
-      frequencyMap.forEach((freq,number)=>{
-        chartData.push({number,freq});
-      })
+    const array = [];
 
-      setData(chartData);
+    frequencyMap.forEach((freqency,number)=>{
+      array.push({number,freqency});
+    })
 
-      console.log(chartData);
+    setData(array);
+    console.log(array);
+ }
 
-  }
+
 
   return (
     <>
-      <div className="w-full max-w-2xl mx-auto p-4 text-white">
-      <h2 className="text-xl font-bold text-center mb-4">Number Frequency Histogram</h2>
-      <ResponsiveContainer width="100%" height={400}>
-          <BarChart data={data}> 
+       <div className='min-h-screen justify-center item-center m-5'>
+        <h1 className='text-center m-4'>Data Analysis</h1>
+        <ResponsiveContainer width={400} height={400}>
+          <BarChart data={data}>
             <XAxis dataKey="number" stroke="white" />
             <YAxis stroke="white" />
-            <Bar dataKey="freq" fill="#4F46E5" />
+            <Bar dataKey="freqency" fill="white"/>
           </BarChart>
         </ResponsiveContainer>
-
-    </div>
-        
+        </div> 
     </>
   )
 }
