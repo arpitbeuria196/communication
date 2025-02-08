@@ -5,6 +5,7 @@ import Shimmer from "./Shimmer";
 const Body = () => {
 
   const [memes,setMemes] = useState([]);
+  const [draggingIndex,setDraggingIndex] = useState(null);
 
   useEffect(()=>{
     fetchData();
@@ -22,14 +23,34 @@ const Body = () => {
 
   }
 
+  const handleDragStart = (index)=>
+  {
+      setDraggingIndex(index);
+  }
+
+  const handleDragOver = ()=>
+  {
+
+  }
+
+  const handleDrop = ()=>
+  {
+
+  }
+
   return (
     <div className="flex flex-wrap">
      {
       memes?.length>0 ? (
         memes.map((meme,index)=>(
           <MemeCard
+          draggable
+          onDragStart= {()=>handleDragStart(index)}
+          onDragOver={handleDragOver}
+          onDrop={() => handleDrop(index)}
           key={index}
           item={meme}
+
           />
         ))
       ) :(
