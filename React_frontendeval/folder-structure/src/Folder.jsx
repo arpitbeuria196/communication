@@ -1,33 +1,35 @@
-import { useState } from "react";
+import { useState } from "react"
 
-const Folder = ({ files, level = 0 }) => {
-  const [isOpen, setIsOpen] = useState(true);
+const Folder = ({files}) => {
+    const[open,setIsOpen] = useState(true);
 
-  const handleOpen = () => {
-    setIsOpen(!isOpen);
-  };
+    const handleOpen = ()=>
+    {
+        setIsOpen(!open);
+    }
 
   return (
-    <div className={`ml-${level * 4} p-1`}>
-      {/* Folder/File Header */}
+    <div>
       <div
-        className="flex items-center gap-2 cursor-pointer hover:text-blue-500 transition duration-300"
-        onClick={handleOpen}
+      className="justify-center items-center cursor-pointer hover:text-blue-500"
+      onClick={handleOpen}
       >
-        <span className="text-lg">{files?.isFolder ? (isOpen ? "📂" : "📁") : "📄"}</span>
-        <span className="font-medium">{files?.name}</span>
+        {files.isFolder ? "📁" : "📄"}
+         <span className="font-medium">{files?.name}</span>
       </div>
-
-      {/* Display children when folder is open */}
-      {files?.isFolder && isOpen && (
-        <div className="pl-4 border-l-2 border-gray-300 ml-2">
-          {files?.children?.map((file, index) => (
-            <Folder key={index} files={file} level={level + 1} />
-          ))}
-        </div>
-      )}
+      {
+        files.isFolder && open && (
+            <div className="border-l-2 pl-4 ml-2">
+                {files.children.map((file,index)=>(
+                    <Folder key={index}
+                    files={file}
+                    />
+                ))}
+            </div>
+        )
+      }
     </div>
-  );
-};
+  )
+}
 
-export default Folder;
+export default Folder
