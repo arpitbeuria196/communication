@@ -13,6 +13,9 @@ const Folder = ({ files, setFiles }) => {
 
   const deleteDocs = (name) => {
     
+  
+    
+
   };
 
   return (
