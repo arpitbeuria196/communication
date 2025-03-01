@@ -40,6 +40,7 @@ function App() {
                 {
                     element: <ProtectedRoute />,
                     children: [
+                        
                         { path: "about", element: <About lang={lang} /> },
                         { path: "team", element: <Team /> },
                         { path: "accordion", element: <Accordion /> },
