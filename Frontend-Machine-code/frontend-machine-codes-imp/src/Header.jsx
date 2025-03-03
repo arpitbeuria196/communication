@@ -5,6 +5,7 @@ const Header = () => {
     <div className='text-xl font-bold py-5 bg-black text-whit text-center flex'>
       <nav>
         <a href='/customModal'>Custom Modal</a>
+        <a href='/starRating'>Star Rating</a>
       </nav>
     </div>
   )

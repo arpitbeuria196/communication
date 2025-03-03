@@ -1,5 +1,6 @@
 import './App.css'
 import CustomModal from './Comments/CustomModal';
+import StarRating from './Comments/StarRating';
 import Header from './Header'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
@@ -15,6 +16,7 @@ function App() {
     <BrowserRouter>
     <Routes>
     <Route path='/customModal' element={<CustomModal/>}></Route>
+    <Route path='/starRating' element={<StarRating/>}></Route>
     </Routes>
     </BrowserRouter>
    </div>
