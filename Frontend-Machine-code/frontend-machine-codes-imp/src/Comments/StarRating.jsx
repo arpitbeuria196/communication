@@ -24,4 +24,6 @@ const StarRating = () => {
   )
 }
 
+//dummy
+
 export default StarRating;
