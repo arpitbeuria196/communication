@@ -10,6 +10,10 @@ const Header = () => {
         <a 
         className='p-4'
         href='/starRating'>StarRating </a>
+        <a
+        className='p-4'
+        href='/dynamicProgress'
+        >DynamicProgress</a>
       </nav>
     </div>
   )
