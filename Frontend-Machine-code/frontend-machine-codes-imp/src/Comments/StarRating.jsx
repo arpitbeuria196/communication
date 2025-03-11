@@ -8,6 +8,8 @@ const StarRating = () => {
   console.log(rating);
 
   return (
+
+    
     <div className='flex flex-row justify-center items-center min-h-screen'>
       {
         starArray.map((val,index)=>(
