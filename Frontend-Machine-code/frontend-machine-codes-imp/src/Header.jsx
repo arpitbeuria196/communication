@@ -7,6 +7,12 @@ const Header = () => {
         <a
         className='p-4'
         href='/customModal'>CustomModal </a>
+        <a
+         className='p-4'
+        href='/pagination'
+        >
+        Pagination
+        </a>
         <a 
         className='p-4'
         href='/starRating'>StarRating </a>

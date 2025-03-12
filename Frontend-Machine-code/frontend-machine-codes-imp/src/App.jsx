@@ -1,6 +1,7 @@
 import './App.css'
 import CustomModal from './Comments/CustomModal';
 import DynamicProgress from './Comments/DynamicProgress';
+import Pagination from './Comments/Pagination';
 import StarRating from './Comments/StarRating';
 import Header from './Header'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -17,6 +18,7 @@ function App() {
     <Route path='/customModal' element={<CustomModal/>}></Route>
     <Route path='/starRating' element={<StarRating/>}></Route>
     <Route path='/dynamicProgress' element={<DynamicProgress/>}></Route>
+    <Route path='/pagination' element={<Pagination/>}></Route>
     </Routes>
     </BrowserRouter>
    </div>
