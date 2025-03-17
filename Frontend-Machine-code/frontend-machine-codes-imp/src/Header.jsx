@@ -20,6 +20,10 @@ const Header = () => {
         className='p-4'
         href='/dynamicProgress'
         >DynamicProgress</a>
+        <a
+        className='p-4'
+        href='/infiniteScrolling'
+        >InfiniteScrolling</a>
       </nav>
     </div>
   )
