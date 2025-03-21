@@ -1,8 +1,15 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 
 const Header = () => {
+
+  const darkMode = useSelector((state)=> state.theme.darkMode);
+
   return (
-    <div className='text-xl font-bold py-5 bg-black text-whit text-center flex'>
+    <div 
+    className={`text-xl font-bold py-5 text-center flex ${ 
+      darkMode ? ' bg-black text-white' : ' bg-white text-black'
+      }`}>
       <nav >
         <a
         className='p-4'
