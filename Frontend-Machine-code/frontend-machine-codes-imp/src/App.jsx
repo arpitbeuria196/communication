@@ -8,7 +8,7 @@ import Header from "./Header";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleTheme } from "./utils/themeSlice";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 function Home() {
   return (
@@ -22,6 +22,9 @@ function App() {
   const dispatch = useDispatch();
   const darkMode = useSelector((state) => state.theme.darkMode);
 
+
+  const [query,setQuery] = useState("");
+
   useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add("dark");
@@ -31,6 +34,24 @@ function App() {
       localStorage.setItem("theme", "light");
     }
   }, [darkMode]);
+
+  const handleSearch = (e)=>
+  {
+    setQuery(e.target.value);
+    console.log(query);
+  }
+
+  useEffect(()=>{
+    const timer = setTimeout(()=>{
+      console.log("Debounced Search Query:", query);
+    },250)
+
+
+    return ()=> clearTimeout(timer);
+  },[query])
+
+
+
 
   return (
     <BrowserRouter>
@@ -46,6 +67,15 @@ function App() {
             {darkMode ? "🌙 Dark Mode" : "☀️ Light Mode"}
           </button>
         </div>
+        <div>
+        <input
+        type="text"
+        value={query}
+        onChange={handleSearch}
+        placeholder="Search..."
+        className="p-2 border rounded text-white p-5 ml-5"
+      />
+          </div>
 
         <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8">
           <Routes>
