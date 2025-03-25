@@ -72,7 +72,7 @@ function App() {
         type="text"
         value={query}
         onChange={handleSearch}
-        placeholder="Search..."
+        placeholder="Search......."
         className="p-2 border rounded text-white p-5 ml-5"
       />
           </div>
