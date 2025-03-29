@@ -9,6 +9,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleTheme } from "./utils/themeSlice";
 import { useEffect, useState } from "react";
+import Accordian from "./Comments/Accordian";
 
 function Home() {
   return (
@@ -17,6 +18,7 @@ function Home() {
     </h1>
   );
 }
+
 
 function App() {
   const dispatch = useDispatch();
@@ -85,6 +87,7 @@ function App() {
             <Route path="/dynamicProgress" element={<DynamicProgress />} />
             <Route path="/pagination" element={<Pagination />} />
             <Route path="/infiniteScrolling" element={<InfiniteScrolling />} />
+            <Route path="/accordian" element={<Accordian/>} />
           </Routes>
         </main>
       </div>

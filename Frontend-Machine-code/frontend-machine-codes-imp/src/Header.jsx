@@ -31,6 +31,10 @@ const Header = () => {
         className='p-4'
         href='/infiniteScrolling'
         >InfiniteScrolling</a>
+        <a
+        className='p-4'
+        href='/accordian'
+        >Accordian</a>
       </nav>
     </div>
   )
