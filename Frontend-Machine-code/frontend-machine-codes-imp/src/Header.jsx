@@ -35,6 +35,10 @@ const Header = () => {
         className='p-4'
         href='/accordian'
         >Accordian</a>
+        <a
+        className='p-4'
+        href='/carousel'
+        >Carousel</a>
       </nav>
     </div>
   )

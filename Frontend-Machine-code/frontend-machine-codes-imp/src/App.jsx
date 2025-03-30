@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleTheme } from "./utils/themeSlice";
 import { useEffect, useState } from "react";
 import Accordian from "./Comments/Accordian";
+import Carousel from "./Comments/Carousel";
 
 function Home() {
   return (
@@ -81,6 +82,7 @@ function App() {
 
         <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8">
           <Routes>
+            <Route path="/carousel" element={<Carousel/>}/>
             <Route path="/" element={<Home />} />
             <Route path="/customModal" element={<CustomModal />} />
             <Route path="/starRating" element={<StarRating />} />
