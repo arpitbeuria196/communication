@@ -55,6 +55,8 @@ function App() {
 
 
 
+  
+
 
   return (
     <BrowserRouter>
@@ -78,6 +80,9 @@ function App() {
         placeholder="Search......."
         className="p-2 border rounded text-white p-5 ml-5"
       />
+
+
+
           </div>
 
         <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8">
