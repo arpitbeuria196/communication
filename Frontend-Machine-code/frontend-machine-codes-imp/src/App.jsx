@@ -40,6 +40,8 @@ function App() {
 
   const handleSearch = (e)=>
   {
+
+    
     setQuery(e.target.value);
     console.log(query);
   }
